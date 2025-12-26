@@ -1,4 +1,4 @@
-import { Code2, FolderOpen } from "lucide-react";
+import { FolderOpen } from "lucide-react";
 import ProjectCard, { Project } from "./project-card";
 
 const projects: Project[] = [
@@ -14,7 +14,14 @@ const projects: Project[] = [
   {
     title: "German Butcher",
     description: "Modern E-commerce with Secure Online Payments",
-    tech: ["React", "Next.js", "TypeScript", "NestJS", "PostgreSQL", "SSL Payment"],
+    tech: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "NestJS",
+      "PostgreSQL",
+      "SSL Payment",
+    ],
     github: "https://github.com/mahabub-bd/germanbutcher-frontend",
     githubBackend: "https://github.com/mahabub-bd/germanbutcher-backend",
     live: "https://germanbutcherbd.com",
@@ -67,19 +74,6 @@ export function ProjectsSection() {
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
-        </div>
-
-        {/* View More Link */}
-        <div className="mt-12 text-center">
-          <a
-            href="https://github.com/mahabub-bd?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-border hover:bg-card rounded-lg font-medium transition-all hover:scale-105"
-          >
-            <Code2 size={18} />
-            View All Projects
-          </a>
         </div>
       </div>
     </section>

@@ -13,7 +13,6 @@ export default function Home() {
     <main className="min-h-screen bg-background text-foreground container mx-auto">
       <Navbar />
       <HeroSection />
-
       <AboutSection />
       <ExperienceSection />
       <EducationSection />
