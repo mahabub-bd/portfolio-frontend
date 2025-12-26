@@ -5,7 +5,16 @@ const projects: Project[] = [
   {
     title: "Smart Sale POS",
     description: "Sales, Inventory & Accounting Solution",
-    tech: ["React", "TypeScript", "Redux", "NestJS", "PostgreSQL"],
+    tech: [
+      "React",
+      "TypeScript",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "NestJS",
+      "PostgreSQL",
+      "React Hook Form",
+      "REST API",
+    ],
     github: "https://github.com/mahabub-bd/smart-salepos-frontend",
     githubBackend: "https://github.com/mahabub-bd/smart-salepos-backend",
     live: "https://smartsalepos.shop",
@@ -18,9 +27,11 @@ const projects: Project[] = [
       "React",
       "Next.js",
       "TypeScript",
+      "Tailwind CSS",
       "NestJS",
       "PostgreSQL",
       "SSL Payment",
+      "Redux Toolkit",
     ],
     github: "https://github.com/mahabub-bd/germanbutcher-frontend",
     githubBackend: "https://github.com/mahabub-bd/germanbutcher-backend",
@@ -30,13 +41,32 @@ const projects: Project[] = [
   {
     title: "Nayanagor Somity",
     description: "Micro Credit Management System",
-    tech: ["React", "Redux", "TypeScript", "NestJS", "PostgreSQL"],
+    tech: [
+      "React",
+      "Redux Toolkit",
+      "TypeScript",
+      "Tailwind CSS",
+      "NestJS",
+      "PostgreSQL",
+      "AG Grid",
+      "REST API",
+    ],
     live: "https://www.nayanagorsomity.org",
   },
   {
     title: "Sawari",
     description: "Bike Inventory & Document Management Application",
-    tech: ["Next.js", "TypeScript", "NestJS", "MongoDB"],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "NestJS",
+      "MongoDB",
+      "Mongoose",
+
+      "REST API",
+      "React Hook Form",
+    ],
     github: "https://github.com/mahabub-bd/sawaribd-frontend",
     githubBackend: "https://github.com/mahabub-bd/sawaribd-backend",
     live: "https://doc.sawaribd.com",
@@ -44,9 +74,36 @@ const projects: Project[] = [
   {
     title: "Greenpac Energy",
     description: "Energy Solutions & Management Platform",
-    tech: ["Next.js", "TypeScript", "NestJS", "PostgreSQL"],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "NestJS",
+      "PostgreSQL",
+
+      "JWT",
+      "REST API",
+      "Zod",
+    ],
     github: "https://github.com/mahabub-bd/greenpac",
     live: "https://www.greenpacbd.org",
+  },
+  {
+    title: "Honda Sale Point Service Booking",
+    description:
+      "Online Service Booking & Management System for Honda Vehicles",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "NestJS",
+      "PostgreSQL",
+      "REST API",
+      "React Hook Form",
+      "Zod",
+    ],
+    github: "https://github.com/mahabub-bd/honda-sales-point-frontend",
+    live: "https://service.hondasalespoint.com",
   },
 ];
 
@@ -62,9 +119,6 @@ export function ProjectsSection() {
             </div>
             <div>
               <h2 className="text-3xl font-bold">Featured Projects</h2>
-              <p className="text-muted-foreground mt-1">
-                A selection of projects I've worked on
-              </p>
             </div>
           </div>
         </div>

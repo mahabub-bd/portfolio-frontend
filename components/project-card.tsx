@@ -17,7 +17,8 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-  const { title, description, tech, github, githubBackend, live, featured } = project;
+  const { title, description, tech, github, githubBackend, live, featured } =
+    project;
 
   return (
     <article className="group relative bg-linear-to-br from-card to-card/50 border border-border/50 rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2">
@@ -33,7 +34,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Animated gradient overlay */}
       <div className="absolute inset-0 bg-linear-to-br from-primary/0 via-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-      
+
       {/* Shimmer effect */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
         <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
@@ -58,7 +59,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               key={t}
               className="px-3 py-1.5 bg-primary/5 border border-primary/10 text-primary text-xs font-medium rounded-lg hover:bg-primary/15 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
               style={{
-                animationDelay: `${index * 50}ms`
+                animationDelay: `${index * 50}ms`,
               }}
             >
               {t}
@@ -73,10 +74,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={live}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-linear-to-r from-primary to-primary/90 text-primary-foreground rounded-xl text-sm font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-3 py-2 bg-linear-to-r from-primary to-primary/90 text-primary-foreground rounded-xl text-sm font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
             >
               <ExternalLink size={16} />
-              Live Demo
+              Live
             </Link>
           )}
 
@@ -85,7 +86,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-border/50 hover:border-primary/50 bg-card/50 hover:bg-card rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-3 py-2 border-2 border-border/50 hover:border-primary/50 bg-card/50 hover:bg-card rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
               aria-label="View frontend code on GitHub"
             >
               <Github size={16} />
@@ -98,7 +99,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={githubBackend}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-border/50 hover:border-primary/50 bg-card/50 hover:bg-card rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-3 py-2 border-2 border-border/50 hover:border-primary/50 bg-card/50 hover:bg-card rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
               aria-label="View backend code on GitHub"
             >
               <Github size={16} />

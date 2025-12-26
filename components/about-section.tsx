@@ -14,9 +14,6 @@ export function AboutSection() {
             </div>
             <div>
               <h2 className="text-3xl font-bold">About Me</h2>
-              <p className="text-muted-foreground mt-1">
-                Get to know me better
-              </p>
             </div>
           </div>
         </div>
