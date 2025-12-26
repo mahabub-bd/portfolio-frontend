@@ -1,0 +1,37 @@
+
+
+services:
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NODE_ENV=production
+    container_name: portfolio
+    restart: unless-stopped
+    ports:
+      - "5000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      # Add your environment variables here
+      # - DATABASE_URL=${DATABASE_URL}
+      # - API_KEY=${API_KEY}
+    # Optionally mount volumes for development
+    # volumes:
+    #   - .:/app
+    #   - /app/node_modules
+    #   - /app/.next
+    networks:
+      - nextjs-network
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  nextjs-network:
+    driver: bridge
