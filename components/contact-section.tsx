@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Mail, MessageCircle, Phone } from "lucide-react";
+import Link from "next/link";
 import { ContactForm } from "./contact-form";
 
 export function ContactSection() {

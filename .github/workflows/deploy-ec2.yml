@@ -1,0 +1,93 @@
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.SITE_URL }}
+
+      - name: Create deployment package
+        run: |
+          mkdir -p deploy
+          cp -r .next deploy/
+          cp -r public deploy/
+          cp package.json deploy/
+          cp -r node_modules deploy/
+          cp next.config.js deploy/ 2>/dev/null || cp next.config.mjs deploy/ 2>/dev/null || true
+          cp -r deploy-scripts/* deploy/ 2>/dev/null || true
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Deploy to EC2
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          # Setup SSH
+          mkdir -p ~/.ssh
+          echo "$EC2_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H $EC2_HOST >> ~/.ssh/known_hosts
+
+          # Upload files to EC2
+          echo "Uploading files to EC2..."
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" \
+            deploy/ \
+            $EC2_USER@$EC2_HOST:$DEPLOY_PATH/
+
+          # Execute deployment commands on EC2
+          echo "Running deployment commands on EC2..."
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'ENDSSH'
+            cd $DEPLOY_PATH || exit 1
+
+            # Install dependencies if needed
+            if [ ! -d "node_modules" ]; then
+              echo "Installing dependencies..."
+              npm ci --production
+            fi
+
+            # Restart application with PM2
+            if command -v pm2 &> /dev/null; then
+              echo "Restarting PM2 process..."
+              pm2 restart portfolio || pm2 start ecosystem.config.js
+            else
+              echo "PM2 not found. Please install PM2 on the server."
+              exit 1
+            fi
+
+            echo "Deployment completed successfully!"
+          ENDSSH
+
+      - name: Cleanup
+        if: always()
+        run: rm -f ~/.ssh/deploy_key

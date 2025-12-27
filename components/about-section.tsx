@@ -144,7 +144,7 @@ export function AboutSection() {
             </div>
             <h3 className="text-2xl font-bold">Domain Expertise</h3>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-6">
             <ExpertiseCard
               title="Fintech & Banking"
               description="Payment processing, card management systems, transaction reconciliation, dispute management, POS terminal operations"

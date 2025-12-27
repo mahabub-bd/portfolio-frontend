@@ -1,5 +1,5 @@
-import { BookOpen } from "lucide-react"
-import { BlogCard } from "./blog-card"
+import { BookOpen } from "lucide-react";
+import { BlogCard } from "./blog-card";
 
 const blogPosts = [
   {
@@ -35,14 +35,15 @@ const blogPosts = [
     tags: ["Docker", "React", "NestJS", "DevOps"],
   },
   {
-    title: "Integrating Google Analytics 4 & Google Tag Manager in React and Next.js",
+    title:
+      "Integrating Google Analytics 4 & Google Tag Manager in React and Next.js",
     description:
       "Learn how to implement Google Analytics 4 and Google Tag Manager in React and Next.js applications for comprehensive tracking and analytics.",
     link: "https://medium.com/@palashmahabub/integrating-google-analytics-4-google-tag-manager-in-react-and-next-js-1db0b9c43949",
     date: "Medium Article",
     tags: ["Analytics", "React", "Next.js", "GTM"],
   },
-]
+];
 
 export function BlogSection() {
   return (
@@ -52,12 +53,12 @@ export function BlogSection() {
           <BookOpen className="text-primary" size={32} />
           Blog & Articles
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 2xl:grid-cols-3 lg:grid-cols-2 gap-8">
           {blogPosts.map((post, idx) => (
             <BlogCard key={idx} {...post} />
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

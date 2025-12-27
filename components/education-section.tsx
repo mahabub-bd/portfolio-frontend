@@ -33,7 +33,7 @@ export function EducationSection() {
           <GraduationCap className="text-primary" size={32} />
           Education
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 2xl:grid-cols-3 lg:grid-cols-2 gap-6">
           {education.map((edu) => (
             <EducationCard key={edu.degree} education={edu} />
           ))}
