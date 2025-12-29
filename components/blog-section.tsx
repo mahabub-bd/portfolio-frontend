@@ -43,6 +43,14 @@ const blogPosts = [
     date: "Medium Article",
     tags: ["Analytics", "React", "Next.js", "GTM"],
   },
+  {
+    title: "Deploying a Full Stack Application with Node.js, PM2, Nginx & SSL",
+    description:
+      "Complete guide on deploying full stack applications to production using Node.js, PM2 for process management, Nginx as reverse proxy, and free SSL certificates with Let's Encrypt.",
+    link: "https://medium.com/@palashmahabub/deploying-a-full-stack-application-with-node-js-pm2-nginx-ssl-c3a40616867c",
+    date: "Medium Article",
+    tags: ["Node.js", "DevOps", "Nginx", "Deployment", "PM2", "SSL"],
+  },
 ];
 
 export function BlogSection() {

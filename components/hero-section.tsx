@@ -1,6 +1,7 @@
+"use client";
+
 import {
   ArrowRight,
-  Code2,
   Download,
   Github,
   Linkedin,
@@ -9,34 +10,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import "./hero-section.css";
-
-// Animated Text Component
-function AnimatedText({
-  text,
-  className = "",
-  delay = 0,
-}: {
-  text: string;
-  className?: string;
-  delay?: number;
-}) {
-  const words = text.split(" ");
-  return (
-    <span className={className}>
-      {words.map((word, index) => (
-        <span
-          key={index}
-          className="inline-block hero-animate-fade-in-up"
-          style={{
-            animationDelay: `${delay + index * 100}ms`,
-          }}
-        >
-          {word}&nbsp;
-        </span>
-      ))}
-    </span>
-  );
-}
+import AnimatedText from "./animated-text";
+import TypewriterText from "./typewriter-text";
 
 export function HeroSection() {
   const descriptionText =
@@ -112,13 +87,13 @@ export function HeroSection() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="grid grid-cols-2 gap-6 sm:grid-cols-2 sm:gap-8">
               <Link
                 href="#contact"
                 className="group hero-animate-fade-in-up inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1 hover:scale-105 text-sm sm:text-base flex-1"
                 style={{ animationDelay: "1400ms" }}
               >
-                Contact Me
+                Contacts
                 <ArrowRight
                   size={16}
                   className="group-hover:translate-x-1 transition-transform"
@@ -134,15 +109,6 @@ export function HeroSection() {
               >
                 <Download size={16} className="group-hover:animate-bounce" />
                 CV
-              </Link>
-
-              <Link
-                href="#projects"
-                className="hero-animate-fade-in-up inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-border hover:bg-card rounded-xl font-semibold transition-all hover:-translate-y-1 hover:scale-105 text-sm sm:text-base flex-1"
-                style={{ animationDelay: "1600ms" }}
-              >
-                <Code2 size={16} />
-                Projects
               </Link>
             </div>
 
@@ -314,20 +280,47 @@ export function HeroSection() {
                 <div className="p-3 sm:p-4 font-mono text-[10px] sm:text-xs leading-tight">
                   <div className="space-y-1.5">
                     <div className="text-[#4ec9b0]">
-                      <span className="text-[#569cd6]">$</span> npm install skills
+                      <span className="text-[#569cd6]">$</span>{" "}
+                      <TypewriterText
+                        text="pnpm install skills"
+                        typingSpeed={50}
+                        startDelay={1000}
+                      />
                     </div>
-                    <div className="text-[#d4d4d4]">
+                    <div
+                      className="text-[#d4d4d4] opacity-0 hero-animate-fade-in-up"
+                      style={{ animationDelay: "2500ms" }}
+                    >
                       installing skills...{"\n"}added 20+ packages in 4 years
                     </div>
-                    <div className="text-[#4ec9b0] mt-2">
-                      <span className="text-[#569cd6]">$</span> git commit -m "Ready to build amazing things"
+                    <div
+                      className="text-[#4ec9b0] mt-2 opacity-0 hero-animate-fade-in-up"
+                      style={{ animationDelay: "3500ms" }}
+                    >
+                      <span className="text-[#569cd6]">$</span>{" "}
+                      <TypewriterText
+                        text='git commit -m "Ready to build amazing things"'
+                        typingSpeed={50}
+                        startDelay={4000}
+                      />
                     </div>
-                    <div className="text-[#6a9955]">
-                      [main 8a3f2c1] Ready to build amazing things{"\n"} 3 files changed, 100+ insertions(+)
+                    <div
+                      className="text-[#6a9955] opacity-0 hero-animate-fade-in-up"
+                      style={{ animationDelay: "7000ms" }}
+                    >
+                      [main 8a3f2c1] Ready to build amazing things{"\n"} 3 files
+                      changed, 100+ insertions(+)
                     </div>
-                    <div className="text-[#4ec9b0] mt-2">
-                      <span className="text-[#569cd6]">$</span> npx portfolio:start --project="your-idea"
-                      <span className="inline-block w-2 h-3 sm:h-4 bg-[#4ec9b0] ml-1 animate-pulse" />
+                    <div
+                      className="text-[#4ec9b0] mt-2 opacity-0 hero-animate-fade-in-up"
+                      style={{ animationDelay: "8000ms" }}
+                    >
+                      <span className="text-[#569cd6]">$</span>{" "}
+                      <TypewriterText
+                        text='npx portfolio:start --project="your-idea"'
+                        typingSpeed={50}
+                        startDelay={8500}
+                      />
                     </div>
                   </div>
                 </div>
