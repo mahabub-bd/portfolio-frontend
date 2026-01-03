@@ -1,6 +1,7 @@
-import { Briefcase, Code2, Database, Server, Trophy, Zap } from "lucide-react";
+import { Briefcase, Code2, Trophy } from "lucide-react";
 import { ExpertiseCard } from "./expertise-card";
 import { SkillCard } from "./skill-card";
+import { skillsData } from "./skills-data";
 
 export function AboutSection() {
   return (
@@ -40,99 +41,19 @@ export function AboutSection() {
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <div className="p-2 bg-primary/10 rounded-lg">
-              <Zap className="text-primary" size={24} />
+              <Trophy className="text-primary" size={24} />
             </div>
             <h3 className="text-2xl font-bold">Technical Skills</h3>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            <SkillCard
-              icon={<Code2 className="text-primary" size={24} />}
-              title="Frontend Technologies"
-              skills={[
-                {
-                  label: "Core",
-                  value: "JavaScript, TypeScript, React.js, Next.js, ",
-                },
-                {
-                  label: "Styling & UI",
-                  value:
-                    "Tailwind CSS, shadcn/ui, CSS Modules, Styled Components",
-                },
-                {
-                  label: "State Management",
-                  value: "Redux, Redux Toolkit, Zustand, Context API, ",
-                },
-                {
-                  label: "Forms & Validation",
-                  value: "React Hook Form, Zod, Yup, ",
-                },
-              ]}
-            />
-
-            <SkillCard
-              icon={<Server className="text-primary" size={24} />}
-              title="Backend Technologies"
-              skills={[
-                {
-                  label: "Runtime & Frameworks",
-                  value: "Node.js, NestJS, Express.js, ",
-                },
-                {
-                  label: "APIs",
-                  value: "RESTful APIs, GraphQL, gRPC, WebSocket, WebRTC",
-                },
-                {
-                  label: "Mobile Development",
-                  value: "Native Android (Java), React Native, ",
-                },
-                {
-                  label: "Payment Systems",
-                  value:
-                    "SSL Payment Gateway, ISO 8583 POS, Payment Processing",
-                },
-              ]}
-            />
-
-            <SkillCard
-              icon={<Database className="text-primary" size={24} />}
-              title="Database & Data"
-              skills={[
-                {
-                  label: "Relational Databases",
-                  value: "PostgreSQL, MySQL, SQL Server, ",
-                },
-                {
-                  label: "NoSQL Databases",
-                  value: "MongoDB, Redis, ",
-                },
-                {
-                  label: "Optimization",
-                  value:
-                    "Query Optimization, Indexing, Database Design, Performance Tuning, Caching Strategies",
-                },
-              ]}
-            />
-
-            <SkillCard
-              icon={<Code2 className="text-primary" size={24} />}
-              title="DevOps & Architecture"
-              skills={[
-                {
-                  label: "Architecture Patterns",
-                  value:
-                    "Clean Architecture, MVC, MVP, Microservices, Monorepo, ",
-                },
-                {
-                  label: "DevOps & Tools",
-                  value:
-                    "Docker,  Dokploy, Jenkins, VPS Management, AWS, Azure",
-                },
-                {
-                  label: "Testing & Quality",
-                  value: " UAT, TDD, ISO 8583 Compliance ,L3 Testing, ",
-                },
-              ]}
-            />
+          <div className="grid md:grid-cols-2 2xl:grid-cols-2 gap-6">
+            {skillsData.map((category, index) => (
+              <SkillCard
+                key={index}
+                icon={category.icon}
+                title={category.title}
+                skills={category.skills}
+              />
+            ))}
           </div>
         </div>
 

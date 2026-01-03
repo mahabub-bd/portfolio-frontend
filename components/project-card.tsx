@@ -41,7 +41,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Content */}
-      <div className="relative p-8">
+      <div className="relative p-6">
         {/* Header */}
         <div className="mb-5">
           <h3 className="text-2xl font-bold mb-3 bg-linear-to-br from-foreground to-foreground/70 bg-clip-text text-transparent group-hover:from-primary group-hover:to-primary/70 transition-all duration-300">
@@ -53,11 +53,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-6">
           {tech.map((t, index) => (
             <span
               key={t}
-              className="px-3 py-1.5 bg-primary/5 border border-primary/10 text-primary text-xs font-medium rounded-lg hover:bg-primary/15 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
+              className="px-2 py-1.5 bg-primary/5 border border-primary/10 text-primary text-xs font-medium rounded-lg hover:bg-primary/15 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
               style={{
                 animationDelay: `${index * 50}ms`,
               }}

@@ -3,7 +3,8 @@
     "allow": [
       "Bash(pnpm run build:*)",
       "Bash(npx tsc:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }

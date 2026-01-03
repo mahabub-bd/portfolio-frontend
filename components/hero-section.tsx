@@ -6,6 +6,7 @@ import {
   Github,
   Linkedin,
   Mail,
+  MessageCircle,
   Sparkles,
 } from "lucide-react";
 import Link from "next/link";
@@ -138,6 +139,33 @@ export function HeroSection() {
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={20} />
+                </Link>
+                <Link
+                  href="https://www.facebook.com/mahabub.bio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 border border-border/50 hover:border-blue-600/50 hover:bg-card hover:text-blue-600 rounded-xl transition-all hover:scale-110 hover:shadow-lg hover:shadow-blue-600/20"
+                  aria-label="Facebook"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="fill-current"
+                  >
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </Link>
+                <Link
+                  href="https://wa.me/8801711852202"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 border border-border/50 hover:border-green-500/50 hover:bg-card hover:text-green-500 rounded-xl transition-all hover:scale-110 hover:shadow-lg hover:shadow-green-500/20"
+                  aria-label="WhatsApp"
+                >
+                  <MessageCircle size={20} />
                 </Link>
                 <Link
                   href="mailto:contact@mahabub.me"

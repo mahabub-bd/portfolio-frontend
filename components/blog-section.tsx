@@ -51,6 +51,30 @@ const blogPosts = [
     date: "Medium Article",
     tags: ["Node.js", "DevOps", "Nginx", "Deployment", "PM2", "SSL"],
   },
+  {
+    title: "Complete Guide: Deploy React + NestJS on Ubuntu VPS with Docker, Nginx, PostgreSQL & Let's Encrypt SSL",
+    description:
+      "Comprehensive deployment guide covering React and NestJS application deployment on Ubuntu VPS using Docker containers, Nginx reverse proxy, PostgreSQL database, and free SSL certificates.",
+    link: "https://medium.com/dev-genius/complete-guide-deploy-react-nestjs-on-ubuntu-vps-with-docker-nginx-postgresql-lets-encrypt-23e60912b44f",
+    date: "Dev Genius Article",
+    tags: ["React", "NestJS", "Docker", "DevOps", "PostgreSQL", "Nginx", "SSL"],
+  },
+  {
+    title: "Stop Using ../../../../ in Vite: Clean Up Your Imports with Absolute Paths",
+    description:
+      "Learn how to configure absolute imports in Vite projects to eliminate messy relative paths and improve code readability and maintainability.",
+    link: "https://medium.com/dev-genius/stop-using-in-vite-clean-up-your-imports-with-absolute-paths-7908d4561bda",
+    date: "Dev Genius Article",
+    tags: ["Vite", "React", "TypeScript", "Best Practices"],
+  },
+  {
+    title: "How Reduced a React App's Bundle Size from 4MB to 30KB",
+    description:
+      "Discover optimization techniques and strategies to dramatically reduce React application bundle size, improving load times and overall performance.",
+    link: "https://medium.com/dev-genius/how-we-reduced-a-react-apps-bundle-size-from-4mb-to-30kb-99bcde1a165a",
+    date: "Dev Genius Article",
+    tags: ["React", "Performance", "Optimization", "Bundle Size"],
+  },
 ];
 
 export function BlogSection() {
